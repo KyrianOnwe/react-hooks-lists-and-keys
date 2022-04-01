@@ -1,4 +1,5 @@
 import React from "react";
+import ColorItem from "./ColorItem";
 
 function ColorList() {
   const colors = [
@@ -8,8 +9,26 @@ function ColorList() {
     "darkslategray",
     "hotpink",
   ];
+  //let's use .map
+  /*const colorElements = colors.map((color) => {
+    return <li style={{ color: color }}>{color}</li>;
+  });
+  BETTER YET, TO DEAL WITH ERROR:
+  */
+  /*const colorElements = colors.map((color) => {
+    return (
+      <li key={color} style={{ color: color }}>
+        {color}
+      </li>
+    );
+  });
+  AND EVEN BETTER ...*/
+  const colorElements = colors.map((color) => {
+    return <ColorItem key={color} color={color} />;
+  });
 
-  return (
+
+  /*return (
     <div>
       <h1>Top 5 CSS Colors</h1>
       <ol>
@@ -18,6 +37,15 @@ function ColorList() {
         <li style={{ color: colors[2] }}>{colors[2]}</li>
         <li style={{ color: colors[3] }}>{colors[3]}</li>
         <li style={{ color: colors[4] }}>{colors[4]}</li>
+      </ol>
+    </div>
+  );*/
+  return (
+    <div>
+      <h1>Top 5 CSS Colors</h1>
+      <ol>
+        {/* display the array of <li> elements here! */}
+        {colorElements}
       </ol>
     </div>
   );
